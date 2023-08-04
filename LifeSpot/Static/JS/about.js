@@ -118,7 +118,7 @@ function currentSlide(n) {
 
 /* Функция перелистывания: */
 function showSlides(n) {
-    /* Обращаемся к элементам с названием класса "item", то есть к картинкам: */
+    /* Обращаемся к элементам с названием класса "slide", то есть к картинкам: */
     let slides = document.getElementsByClassName("slide");
 
     /* Проверяем количество слайдов: */

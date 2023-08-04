@@ -96,27 +96,43 @@ function addLike(id) {
     element.innerText = array.join(' ')
 }
 
-let slideIndex = 0;
-
+/* Устанавливаем стартовый индекс слайда по умолчанию: */
+let slideIndex = 1;
+/* Вызываем функцию, которая реализована ниже: */
 showSlides(slideIndex);
 
-function nextSlide(n) {
-    showSlides(slideIndex += n)
+/* Увеличиваем индекс на 1 — показываем следующий слайд: */
+function nextSlide() {
+    showSlides(slideIndex += 1);
 }
 
-function showSlides(n) {
+/* Уменьшаем индекс на 1 — показываем предыдущий слайд: */
+function previousSlide() {
+    showSlides(slideIndex -= 1);
+}
 
+/* Устанавливаем текущий слайд: */
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+/* Функция перелистывания: */
+function showSlides(n) {
+    /* Обращаемся к элементам с названием класса "item", то есть к картинкам: */
     let slides = document.getElementsByClassName("slide");
 
+    /* Проверяем количество слайдов: */
     if (n > slides.length) {
-        slideIndex = 1;
+        slideIndex = 1
     }
     if (n < 1) {
-        slideIndex = slides.length;
+        slideIndex = slides.length
     }
 
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+    /* Проходим по каждому слайду в цикле for: */
+    for (let slide of slides) {
+        slide.style.display = "none";
     }
+    /* Делаем элемент блочным: */
     slides[slideIndex - 1].style.display = "block";
 }
